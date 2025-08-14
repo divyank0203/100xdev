@@ -4,18 +4,20 @@
   - A word, phrase, or name formed by rearranging the letters of another, such as spar, formed from rasp.
 */
 
-function isAnagram(str1, str2) {
+function isAnagram(str1, str2){
     if(str1.length !== str2.length) {
         return false;
     }
     else{
-        let s1 = str1
+        const arr1 =str1.toLowerCase().split('').sort();
+        const arr2 =str2.toLowerCase().split('').sort();
+        return arr1.join('')===arr2.join('');
+        // for(let i=0; i<arr1.length; i++){
+        //     if(arr1[i] !== arr2[i]) {
+        //         return false;
+        //     }
+        // }
+        // return true;
     }
 }
-
-if(isAnagram("spar", "rasp")){
-    console.log("yes");
-}
-else{
-    console.log("no");
-}
+console.log(isAnagram('spartan', 'antrasp'));
