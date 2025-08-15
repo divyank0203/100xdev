@@ -33,3 +33,7 @@ function rep(str, target, replacement){
 }
 
 rep("Hello World", "World", "Hello");
+
+
+
+//const cleanString = yourString.trim().replace(/\s+/g, ' '); this removes all extra spaces in a string
