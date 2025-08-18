@@ -42,6 +42,15 @@ app.get('/health-checkup', usermiddleware, kiddneymiddleware, function(req, res)
 })
     
 
+app.post('/health-checkup', function(req, res){
+    const kid = req.body.kid;
+    const l = parseInt(kid.length);
+    res.send(`Your kidney's size is ${kid}`);
+} )
+
+
+
+
 // app.get('/', function(req, res){
 //     const kidneyId = req.query.kidneyId;
 //     const username = req.headers.username;
@@ -64,5 +73,5 @@ app.get('/health-checkup', usermiddleware, kiddneymiddleware, function(req, res)
 
 // })
 
-app.listen(3005);
+app.listen(3006);
 
