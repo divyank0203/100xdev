@@ -11,12 +11,12 @@ const User = mongoose.model('Users', { name: String, email: String, //creates a 
 });
 
 
-app.post('/signup', function(req, res){
+app.post('/signup', async function(req, res){
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
 
-    const existinguser =  User.findOne({email: email}); //checks if the user already exists
+    const existinguser = await User.findOne({email: email}); //checks if the user already exists
     if(existinguser){
         return res.status(400).send("User already exists");
     }
@@ -35,5 +35,5 @@ app.post('/signup', function(req, res){
 
 
 
-app.listen(3010);
+app.listen(3011);
 
