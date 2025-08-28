@@ -15,5 +15,7 @@
             const data = await response.json();
             console.log(data);
         }
+        getData();
+        console.log('got the data');
 
         
