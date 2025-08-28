@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="in">
+        <input type="text" id="input1"></input>
+    </div><br>
+    <div id="inp">
+        <input type="text" id="input2"></input>
+    </div><br>
+    <div><button id="sumb" onclick="{sum()}" >Calculate Sum</button>
+        </div><br>
+        <div><b><span id="result"></span></b></div>
+</body>
+<script>
+    let i1=document.getElementById("input1");
+    let i2=document.getElementById("input2");
+
+    function sum(){
+        let answer = Number(i1.value) + Number(i2.value); //i1.valprue + i2.value;
+        if(!i1.value || !i2.value){
+        console.log("error");
+        document.getElementById("result").innerHTML = "Enter both the numbers";
+    }
+    else{
+        document.getElementById("result").innerHTML = `The sum is: ${answer.toString()}` ;
+    }
+    }
+i1.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    sum();
+  }
+});
+i2.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    sum();
+  }
+});
+
+
+</script>
+</html>
