@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="in">
+        <input type="text" id="title" placeholder="Task"></input><br><br>
+        <input type="text" id="des" placeholder="Description"></input><br><br>
+        <button id="add" onclick="Addtodo()">Add Todo</button><br><br>
+    </div>
+    <b><div id="tit">Todo List</div></b>
+    <div id="container">
+        <div>
+            
+            <!-- <div id="todo"></div><br>
+            <i><div id="description"></div></i><br>
+            <button></button> -->
+
+
+        </div>
+    </div>
+</body>
+<script>
+    function Addtodo(){
+        let title = document.getElementById("title").value;
+        let description = document.getElementById("des").value;
+        // we will use document.createElement 
+        const outerDiv = document.createElement("div"); //this creates a div getElementById
+        outerDiv.innerHTML = `
+            <br>
+            <div id="todo">${title}</div><br>
+            <i><div id="description">${description}</div></i><br>
+            <button>Mark as Done</button>
+        `
+        document.getElementById("container").appendChild(outerDiv); //inserts the outerDiv in the container div
+
+
+
+        // if(!title || !description){
+        //     document.getElementById("todo").innerHTML = "Enter both the fields";
+        // }
+        // else{
+        // document.getElementById("todo").innerHTML = title;
+        // document.getElementById("description").innerHTML = description;
+        // }
+    }
+    
+
+    document.getElementById("title").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        Addtodo();
+      }
+    })
+    document.getElementById("des").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        Addtodo();
+      }
+    })
+
+</script>
+</html>
