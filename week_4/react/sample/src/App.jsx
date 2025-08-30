@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
 
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count = Math.floor(Math.random()*100))}>
           count is {count}
         </button>
 
