@@ -5,18 +5,25 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  function increment(){
-    setCount(count + 1);
-  }
+
 
   return (
-    <>
-        <button onClick={increment}>
-          count is {count}
-        </button>
+    <div>
+      <CustomButton count={count} setCount={setCount}></CustomButton>
       
-    </>
+    </div>
   )
+
+}
+function CustomButton(props){
+    function increment(){
+    props.setCount(props.count + 1);
+  }
+
+  return <button onClick={increment}>
+      Counter {props.count}
+    </button>
+  
 }
 
 export default App
