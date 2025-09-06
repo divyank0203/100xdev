@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const[inputval, setinputval] = useState(0);
+  // const[inputval, setinputval] = useState(0);
 
   //useEffect approach
   // const [finalval, setfinalval] = useState(0);
@@ -21,22 +21,22 @@ function App() {
 
 
   // usememo approach
-  let finalval = useMemo(function(){
-    let sums=0;
-    for(let i=1; i<=inputval; i++){
-      sums+=i;
-    }
-    return sums;
-  }, [inputval]) // recalculate finalval only when inputval changes
+  // let finalval = useMemo(function(){
+  //   let sums=0;
+  //   for(let i=1; i<=inputval; i++){
+  //     sums+=i;
+  //   }
+  //   return sums;
+  // }, [inputval]) // recalculate finalval only when inputval changes
 
 
 
   return (
     <>
-    <input type="text" id='in' onChange={function(e){
+    {/* <input type="text" id='in' onChange={function(e){
       setinputval(e.target.value);
     }}/><br />
-    <p>The Sum from 1 to {inputval} is {finalval}</p><br />
+    <p>The Sum from 1 to {inputval} is {finalval}</p><br /> */}
     <button onClick={function(){setCount(count+1)}}>Counter {count}</button>
 
     </>
