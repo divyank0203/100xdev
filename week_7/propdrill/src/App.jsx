@@ -1,15 +1,21 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+
+import { CountContext } from './context'
+// wrap anyone that wants to use the teleported value inside a provider
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Count coutn={count}/>
-      <Buttons less={function(){setCount(count-1)}} more={function(){setCount(count+1)}}></Buttons>
+      <CountContext.Provider value={count}>
+      <Count setCount={setCount}/>
+      </CountContext.Provider>
+      
     
     </>
   )
@@ -17,24 +23,36 @@ function App() {
 
 export default App
 
-function Count({coutn}){
+function Count({setCount} ){
 //const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>{coutn}</h1>
+      <CountRender/><br /><br />
+      <Buttons setCount={setCount}></Buttons>
       
       </>
   )
 
 }
 
-function Buttons({more, less}){
+function CountRender(){
+  const count = useContext(CountContext);
+  return (
+    <>
+    {count}
+    </>
+  )
+}
 
+function Buttons({setCount}){
+  const count = useContext(CountContext);
 return(
   <>
-    <button onClick={more}>Increase</button><br /><br />
-    <button onClick={less}>Decrease</button><br />
+    <button onClick={function(){
+      setCount(count+1)
+    }}>Increase</button><br /><br />
+    <button onClick={function(){setCount(count-1)}}>Decrease</button><br />
   </>
 )
 
