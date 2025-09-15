@@ -20,7 +20,12 @@ function App() {
       <button style={{margin: "10px"}}>Messages ({message>=100?"99+":message})</button>
       <button style={{margin: "10px"}}>Notifications ({notification>=100?"99+":notification})</button>
 
-      <button style={{margin: "10px"}}>My Profile</button>
+      <button style={{margin: "10px"}} onClick={function(){
+        setNetwork(network+1);
+        setJob(job+1);
+        setMessage(message+1);
+        setNotification(notification+1);
+      }}>My Profile</button>
     </>
   )
 }
