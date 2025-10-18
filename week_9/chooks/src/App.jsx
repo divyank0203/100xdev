@@ -26,11 +26,20 @@ function useTodos(n){
 }
 
 function App() {
-  
+  const {todos, loading} = useTodos(5); // using the custom hook
 
+  if(loading){
+    return <h1>Loading...</h1>
+  }
+
+  // render the todos
   return (
     <>
-     
+      {/* <div>
+        {todos.map(funtion(todo){
+          <div>{todo}</div>
+        })}
+      </div> */}
     </>
   )
 }
